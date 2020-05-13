@@ -46,11 +46,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.note_id_txt.setText(String.valueOf(note_id.get(position)));
         holder.note_title_txt.setText(String.valueOf(note_title.get(position)));
         holder.note_message_txt.setText(String.valueOf(note_message.get(position)));
-        //Recyclerview onClickListener
+
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateActivity.class);
+                Intent intent = new Intent(context, NoteEditActivity.class);
                 intent.putExtra("id", holder.note_id_txt.getText().toString());
                 intent.putExtra("title",holder.note_title_txt.getText().toString());
                 intent.putExtra("author", holder.note_message_txt.getText().toString());
@@ -97,7 +98,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             mainLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, UpdateActivity.class);
+                    Intent intent = new Intent(context, NoteEditActivity.class);
                     intent.putExtra("id", note_id_txt.getText().toString());
                     intent.putExtra("title",note_title_txt.getText().toString()  );
                     intent.putExtra("author",   note_message_txt.getText().toString());

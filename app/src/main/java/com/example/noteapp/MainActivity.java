@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     MyDatabaseHelper myDB;
     ArrayList<String> note_id, note_title, note_message;
-    //CustomAdapter customAdapter;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

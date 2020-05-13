@@ -13,7 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UpdateActivity extends AppCompatActivity {
+public class NoteEditActivity extends AppCompatActivity {
 
     EditText title_input;
     Button update_button, delete_button;
@@ -36,10 +36,8 @@ public class UpdateActivity extends AppCompatActivity {
         title_input.setText(title);
         message_input.setText(message);
 
-        //First we call this
         getAndSetIntentData();
 
-        //Set actionbar title after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle(title);
@@ -49,7 +47,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //And only then we call this
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                MyDatabaseHelper myDB = new MyDatabaseHelper(NoteEditActivity.this);
                 title = title_input.getText().toString().trim();
                 message = message_input.getText().toString();
                 myDB.updateData(id, title, message);
@@ -87,7 +85,7 @@ public class UpdateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                MyDatabaseHelper myDB = new MyDatabaseHelper(NoteEditActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
             }
