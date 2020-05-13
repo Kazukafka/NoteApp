@@ -17,9 +17,10 @@ public class UpdateActivity extends AppCompatActivity {
 
     EditText title_input;
     Button update_button, delete_button;
-    MultiAutoCompleteTextView message_input = (MultiAutoCompleteTextView)findViewById(R.id.me);
+    MultiAutoCompleteTextView message_input;
+    //MultiAutoCompleteTextView message_input = (MultiAutoCompleteTextView)findViewById(R.id.me);
 
-    String id, title;
+    String id, title, message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,11 @@ public class UpdateActivity extends AppCompatActivity {
         title_input = findViewById(R.id.title_input2);
         update_button = findViewById(R.id.ub);
         delete_button = findViewById(R.id.db);
+
+        message_input = findViewById(R.id.me);
+
+        title_input.setText(title);
+        message_input.setText(message);
 
         //First we call this
         getAndSetIntentData();
@@ -45,7 +51,7 @@ public class UpdateActivity extends AppCompatActivity {
                 //And only then we call this
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
                 title = title_input.getText().toString().trim();
-                String message = message_input.getText().toString().trim();
+                message = message_input.getText().toString();
                 myDB.updateData(id, title, message);
             }
         });

@@ -13,14 +13,16 @@ public class InsertActivity extends AppCompatActivity {
 
     EditText title_input;
     Button add_button;
-    MultiAutoCompleteTextView message = (MultiAutoCompleteTextView)findViewById(R.id.me);
+    MultiAutoCompleteTextView message;
+    //MultiAutoCompleteTextView message = (MultiAutoCompleteTextView)findViewById(R.id.me);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        title_input = findViewById(R.id.title_input2);
+        message = findViewById(R.id.me);
+        title_input = findViewById(R.id.title_input);
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
